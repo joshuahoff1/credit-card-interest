@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardInterestTest", "CreditCardInterestTest\CreditCardInterestTest.csproj", "{5A1700CB-EBDC-48AE-B5CE-1AC4F3F54C1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardInterest", "CreditCardInterestTest\CreditCardInterest.csproj", "{5A1700CB-EBDC-48AE-B5CE-1AC4F3F54C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardTests", "CreditCardTests\CreditCardTests.csproj", "{5D64D75B-DDD2-4F38-A2CA-05964C8B65CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardTests", "CreditCardTests\CreditCardTests.csproj", "{5D64D75B-DDD2-4F38-A2CA-05964C8B65CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

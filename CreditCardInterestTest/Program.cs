@@ -20,6 +20,7 @@ namespace CreditCardInterestTest
 
 
             Console.WriteLine(person.CalculateSimpleInterest());
+            Console.ReadKey();
         }
     }
 }
