@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CreditCardInterestTest\CreditCardInterest.csproj" />
+    <ProjectReference Include="..\CreditCardInterest\CreditCardInterest.csproj" />
   </ItemGroup>
 
 </Project>

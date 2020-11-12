@@ -1,9 +1,7 @@
-﻿using CreditCardInterestTest.Data;
+﻿using CreditCardInterest.Data;
 using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
 
-namespace CreditCardInterestTest
+namespace CreditCardInterest
 {
     class Program
     {
@@ -17,7 +15,6 @@ namespace CreditCardInterestTest
             wallet.AddCard(new Discover(100));
 
             person.GiveWallet(wallet);
-
 
             Console.WriteLine(person.CalculateSimpleInterest());
             Console.ReadKey();

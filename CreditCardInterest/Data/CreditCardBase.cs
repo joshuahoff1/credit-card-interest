@@ -1,4 +1,4 @@
-﻿namespace CreditCardInterestTest.Data
+﻿namespace CreditCardInterest.Data
 {
     public abstract class CreditCardBase
     {

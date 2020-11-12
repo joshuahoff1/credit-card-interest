@@ -4,7 +4,7 @@ using System.Linq;
 using System.Dynamic;
 using System.Text;
 
-namespace CreditCardInterestTest.Data
+namespace CreditCardInterest.Data
 {
     public class Person : PersonBase, IManageWallets
     {

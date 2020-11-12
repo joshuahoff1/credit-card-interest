@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CreditCardInterestTest.Data
+namespace CreditCardInterest.Data
 {
     public abstract class PersonBase
     {

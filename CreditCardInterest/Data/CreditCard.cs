@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CreditCardInterestTest.Data
+namespace CreditCardInterest.Data
 {
     public class CreditCard : CreditCardBase
     {

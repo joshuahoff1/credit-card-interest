@@ -1,5 +1,5 @@
 ﻿
-namespace CreditCardInterestTest.Data
+namespace CreditCardInterest.Data
 {
     public interface IManageCards
     {
