@@ -11,92 +11,67 @@ namespace CreditCardTests
         [TestMethod]
         public void OnePersonOneWallet()
         {
-            var person = new Person()
-            {
-                Wallets = new List<Wallet>()
-                {
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Visa(100),
-                            new Mastercard(100),
-                            new Discover(100)
-                        }
-                    }
-                }
-            };
+            var person = new Person();
+            var wallet = new Wallet();
+            
+            var visaId = wallet.AddCard(new Visa(100));
+            var masterId = wallet.AddCard(new Mastercard(100));
+            var discId = wallet.AddCard(new Discover(100));
 
-            Assert.IsTrue(person.SimpleInterest == 16d);
-            Assert.IsTrue(person.Wallets.First().Cards[0].SimpleInterest == 10d);
-            Assert.IsTrue(person.Wallets.First().Cards[1].SimpleInterest == 5d);
-            Assert.IsTrue(person.Wallets.First().Cards[2].SimpleInterest == 1d);
+            person.GiveWallet(wallet);
+
+            Assert.IsTrue(person.CalculateSimpleInterest() == 16d);
+            Assert.IsTrue(wallet.retrieveCard(visaId).GetSimpleInterest() == 10d);
+            Assert.IsTrue(wallet.retrieveCard(masterId).GetSimpleInterest() == 5d);
+            Assert.IsTrue(wallet.retrieveCard(discId).GetSimpleInterest() == 1d);
         }
 
         [TestMethod]
         public void OnePersonTwoWallets()
         {
-            var person = new Person()
-            {
-                Wallets = new List<Wallet>()
-                {
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Visa(100),
-                            new Discover(100)
-                        }
-                    },
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Mastercard(100)
-                        }
-                    },
-                }
-            };
+            var person = new Person();
 
-            Assert.IsTrue(person.SimpleInterest == 16d);
-            Assert.IsTrue(person.Wallets[0].SimpleInterest == 11d);
-            Assert.IsTrue(person.Wallets[1].SimpleInterest == 5d);
+            var wallet1 = new Wallet();
+            wallet1.AddCard(new Visa(100));
+            wallet1.AddCard(new Discover(100));
+            person.GiveWallet(wallet1);
+
+            var wallet2 = new Wallet();
+            wallet2.AddCard(new Mastercard(100));
+            person.GiveWallet(wallet2);
+
+
+            Assert.IsTrue(person.CalculateSimpleInterest() == 16d);
+            Assert.IsTrue(wallet1.GetSimpleInterest() == 11d);
+            Assert.IsTrue(wallet2.GetSimpleInterest() == 5d);
         }
 
         [TestMethod]
         public void TwoPersonsOneWalletEach()
         {
-            var person1 = new Person()
-            {
-                Wallets = new List<Wallet>()
-                {
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Visa(100),
-                            new Mastercard(100),
-                            new Discover(100)
-                        }
-                    }
-                }
-            };
+            var person1 = new Person();
+            var wallet1 = new Wallet();
 
-            var person2 = new Person()
-            {
-                Wallets = new List<Wallet>()
-                {
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Visa(100),
-                            new Mastercard(100)
-                        }
-                    }
-                }
-            };
+            wallet1.AddCard(new Visa(100));
+            wallet1.AddCard(new Mastercard(100));
+            wallet1.AddCard(new Discover(100));
 
-            Assert.IsTrue(person1.SimpleInterest == 16d);
-            Assert.IsTrue(person1.Wallets[0].SimpleInterest == 16d);
+            person1.GiveWallet(wallet1);
 
-            Assert.IsTrue(person2.SimpleInterest == 15d);
-            Assert.IsTrue(person2.Wallets[0].SimpleInterest == 15d);
+
+            var person2 = new Person();
+            var wallet2 = new Wallet();
+
+            wallet2.AddCard(new Visa(100));
+            wallet2.AddCard(new Mastercard(100));
+
+            person2.GiveWallet(wallet2);
+
+            Assert.IsTrue(person1.CalculateSimpleInterest() == 16d);
+            Assert.IsTrue(wallet1.GetSimpleInterest() == 16d);
+
+            Assert.IsTrue(person2.CalculateSimpleInterest() == 15d);
+            Assert.IsTrue(wallet2.GetSimpleInterest() == 15d);
         }
     }
 }

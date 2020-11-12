@@ -4,17 +4,15 @@ using System.Text;
 
 namespace CreditCardInterestTest.Data
 {
-    public class CreditCard
+    public class CreditCard : CreditCardBase
     {
-        public double InterestRate { get; set; }
+        public CreditCard()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
 
-        public double Balance { get; set; }
-
-        public double SimpleInterest {
-            get
-            {
-                return this.Balance * this.InterestRate;
-            }
+        public override double GetSimpleInterest() {
+            return this.Balance * this.InterestRate;
         }
     }
 }

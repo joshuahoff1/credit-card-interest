@@ -9,27 +9,17 @@ namespace CreditCardInterestTest
     {
         static void Main(string[] args)
         {
-            var person = GeneratePerson();
+            var person = new Person();
+            var wallet = new Wallet();
 
-            Console.WriteLine(person.SimpleInterest);
-        }
+            wallet.AddCard(new Visa(100));
+            wallet.AddCard(new Mastercard(100));
+            wallet.AddCard(new Discover(100));
 
-        private static Person GeneratePerson()
-        {
-            return new Person()
-            {
-                Wallets = new List<Wallet>()
-                {
-                    new Wallet(){
-                        Cards = new List<CreditCard>
-                        {
-                            new Visa(100),
-                            new Mastercard(100),
-                            new Discover(100)
-                        }
-                    }
-                }
-            };
+            person.GiveWallet(wallet);
+
+
+            Console.WriteLine(person.CalculateSimpleInterest());
         }
     }
 }
